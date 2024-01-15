@@ -50,7 +50,6 @@ void	mov_pb(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = a_first_element->next;
 	a_first_element->next = b_first_element;
 	*stack_b = a_first_element;
-	(*stack_b)->target = NULL;
 	ft_printf("pb\n");
 }
 // put a specific node on top on stack_a
