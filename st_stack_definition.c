@@ -61,7 +61,6 @@ void	st_define_lower_target(t_stack **stack_a, t_stack **stack_b)
 			temp_a->target = st_findbigger_node(stack_b);
 		temp_a = temp_a->next;
 	}
-	return ;
 }
 // the target must be the node with the biggest close value possible
 // if there is no biggest close value possible, then it's the min
@@ -96,11 +95,17 @@ void	st_define_bigger_target(t_stack **stack_a, t_stack **stack_b)
 //define qt_mov to top
 void	st_update_ab_values(t_stack **stack_a, t_stack **stack_b)
 {
+	st_define_index(stack_a);
+	st_define_index(stack_b);
 	st_define_lower_target(stack_a, stack_b);
+	st_calculate_qtmov(stack_a, stack_b);
+}
+
+void	st_update_a_values(t_stack **stack_a, t_stack **stack_b)
+{
 	st_define_bigger_target(stack_a, stack_b);
 	st_define_index(stack_a);
 	st_define_index(stack_b);
-	st_calculate_qtmov(stack_a, stack_b);
 }
 
 //Isolated test for st_define_index

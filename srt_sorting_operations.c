@@ -95,23 +95,24 @@ void	srt_turc_algorithm(t_stack **stack_a, t_stack **stack_b)
 	{
 		st_update_ab_values(stack_a, stack_b);
 		srt_pb_less_qtmov(stack_a, stack_b);
-
-		ft_printf("\033[1;31m========= Looping pb() ========\033[0m\n");
-		ft_printf("\033[3;32mSTACK_A\033[0m\n");
-		st_printstack((*stack_a));
-		ft_printf("\033[3;34mSTACK_B\033[0m\n");
-		st_printstack((*stack_b));
 		stack_size --;
 	}
-	/* srt_sort_three(stack_a);
+	st_update_ab_values(stack_a, stack_b);
+	srt_sort_three(stack_a);
 	st_define_bigger_target(stack_a, stack_b);
 	while ((*stack_b) != NULL)
 	{
-		st_update_ab_values(stack_a, stack_b);
+		st_update_a_values(stack_a, stack_b);
 		mov_put_ontop_a(stack_a, (*stack_b)->target);
 		mov_pa(stack_a, stack_b);
 	}
-	st_define_index(stack_a); */
+	st_define_index(stack_a);
+	st_update_ab_values(stack_a, stack_b);
+	/* ft_printf("\033[1;31m========= Looping pb() ========\033[0m\n");
+	ft_printf("\033[3;32mSTACK_A\033[0m\n");
+	st_printstack((*stack_a));
+	ft_printf("\033[3;34mSTACK_B\033[0m\n");
+	st_printstack((*stack_b)); */
 }
 
 //move the node have less moviments to the top to stack_b.
@@ -130,7 +131,7 @@ void	srt_pb_less_qtmov(t_stack **stack_a, t_stack **stack_b)
 	ft_printf("ENTROU EM pb_less_qtmov()\n");
 	ft_printf("\033[3;32m====>NODE MAIS BARATO<====\033[0m\n");
 	ft_printf("Node mais barato | %i |", lessmoves_nd->value);
-	ft_printf("Preco | %i |", lessmoves_nd->qt_mov_top);
+	ft_printf(" Preco | %i |", lessmoves_nd->qt_mov_top);
 	ft_printf("Target | %i | \n", lessmoves_nd->target->value);
 	//ft_printf("\033[3;34mSTACK_B\033[0m\n");
 	if (lessmoves_nd->target != NULL)

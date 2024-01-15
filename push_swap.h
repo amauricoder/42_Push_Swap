@@ -76,6 +76,7 @@ void		st_define_index(t_stack **stack);
 void		st_define_lower_target(t_stack **stack_a, t_stack **stack_b);
 void		st_update_ab_values(t_stack **stack_a, t_stack **stack_b);
 void		st_define_bigger_target(t_stack **stack_a, t_stack **stack_b);
+void		st_update_a_values(t_stack **stack_a, t_stack **stack_b);
 /******************************/
 /*            List            */
 /*       st_list_utils.c      */
