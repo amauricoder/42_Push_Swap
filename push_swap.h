@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic>                        +#+  +:+       +#+        */
+/*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/13 19:51:03 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:43:03 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int			ft_abs(int value);
 /******************************/
 t_stack		*st_init_stack(char **argv);
 t_stack		*st_findbigger_node(t_stack **stack);
+t_stack		*st_findlower_node(t_stack **stack);
 void		st_printstack(t_stack *stack);
 int			st_nodes_counter(t_stack **stack);
 /******************************/
@@ -74,7 +75,7 @@ int			st_nodes_counter(t_stack **stack);
 /******************************/
 void		st_define_index(t_stack **stack);
 void		st_define_lower_target(t_stack **stack_a, t_stack **stack_b);
-void		st_update_ab_values(t_stack **stack_a, t_stack **stack_b);
+void		st_update_b_values(t_stack **stack_a, t_stack **stack_b);
 void		st_define_bigger_target(t_stack **stack_a, t_stack **stack_b);
 void		st_update_a_values(t_stack **stack_a, t_stack **stack_b);
 /******************************/
@@ -84,6 +85,8 @@ void		st_update_a_values(t_stack **stack_a, t_stack **stack_b);
 t_stack		*st_newitem(int value);
 void		st_item_addback(t_stack **lst, t_stack *new);
 void		st_list_free(t_stack *head);
+void		st_putmax_ontop(t_stack **stack);
+void		st_putmin_ontop(t_stack **stack);
 /******************************/
 /*       Moviments Swap       */
 /*          mov_swap.c        */
@@ -124,6 +127,7 @@ void		srt_sort_stack(t_stack **stack);
 void		srt_sort_three(t_stack **stack);
 void		srt_turc_algorithm(t_stack **stack_a, t_stack **stack_b);
 void		srt_pb_less_qtmov(t_stack **stack_a, t_stack **stack_b);
+void		st_null_all_targets(t_stack **stack_a, t_stack **stack_b);
 /******************************/
 /*     Sorting Calculation    */
 /* srt_sorting_calculation.c  */

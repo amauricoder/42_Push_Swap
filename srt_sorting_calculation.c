@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   srt_sorting_calculation.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic>                        +#+  +:+       +#+        */
+/*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 13:18:52 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/10 14:43:15 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:36:25 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,16 @@ t_stack	*srt_calc_lessmoves(t_stack **stack_a)
 {
 	t_stack *temp_a;
 	t_stack	*selected_node;
-	int		index;
 	int		min_qtmoves;
 	
 	temp_a = *stack_a;
 	selected_node = NULL;
-	index = INT_MAX;
 	min_qtmoves = INT_MAX;
 	while (temp_a != NULL)
 	{
-		if (temp_a->index < index || temp_a->qt_mov_top < min_qtmoves)
+		if (temp_a->qt_mov_top < min_qtmoves)
 		{
 			min_qtmoves = temp_a->qt_mov_top;
-			index = temp_a->index;
 			selected_node = temp_a;
 		}
 		temp_a = temp_a->next;
@@ -57,6 +54,20 @@ void	st_calculate_qtmov(t_stack **stack_a, t_stack **stack_b)
 			temp->qt_mov_top += temp->target->index;
 		else
 			temp->qt_mov_top += size_b - (temp->target->index);
+		/*if (temp->above_med == 0 && temp->target->above_med == 0)
+		{
+			if (temp->index > temp->target->index)
+				temp->qt_mov_top -= size_a - (temp->index);
+			else
+				temp->qt_mov_top -= size_b - (temp->target->index);
+		}
+		if (temp->above_med && temp->target->above_med)
+		{
+			if (temp->index > temp->target->index)
+				temp->qt_mov_top -= temp->target->index;
+			else
+				temp->qt_mov_top -= temp->index;
+		}*/
 		temp = temp->next;
 	}
 }

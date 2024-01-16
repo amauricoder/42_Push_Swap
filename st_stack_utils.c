@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:38:08 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/06 18:19:02 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:46:35 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,29 @@ t_stack	*st_findbigger_node(t_stack **stack)
 		temp = temp->next;
 	}
 	return (bigger_node);
+}
+
+t_stack	*st_findlower_node(t_stack **stack)
+{
+	t_stack	*temp;
+	t_stack	*lower_node;
+	int		max_value;
+
+	if (stack == NULL)
+		return NULL;
+	temp = *stack;
+	lower_node = NULL;
+	max_value = INT_MAX;
+	while (temp != NULL)
+	{
+		if (temp->value < max_value)
+		{
+			max_value = temp->value;
+			lower_node = temp;
+		}
+		temp = temp->next;
+	}
+	return (lower_node);
 }
 //Isolated test to st_init_stack();
 /* 

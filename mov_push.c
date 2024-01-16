@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mov_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic>                        +#+  +:+       +#+        */
+/*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 18:45:03 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/08 13:57:38 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:08:56 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	mov_pa(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = b_first_element->next;
 	b_first_element->next = a_first_element;
 	*stack_a = b_first_element;
-	//st_update_ab_values(stack_a, stack_b);
+	//st_update_b_values(stack_a, stack_b);
 	ft_printf("pa\n");
 }
 
@@ -56,12 +56,30 @@ void	mov_pb(t_stack **stack_a, t_stack **stack_b)
 //have in consideration if its above med or not.
 void	mov_put_ontop_a(t_stack **stack_a, t_stack *node)
 {
-	while (*stack_a != node)
+	//ft_printf("\033[1;31mMOV_PUT_ONTOP_A \033[0m\n");
+	while ((*stack_a)->value != node->value)
 	{
 		if (node->above_med == 1)
+		{
+			/* ft_printf(" VALOR DO NODE %i | ", node->value);
+			ft_printf(" VALOR DO TARGET %i | ", node->target->value);
+			ft_printf(" VALOR DO PRIMEIRO ITEM STACK %i\n", (*stack_a)->value); */
+			
+			/* ft_printf("\033[3;32mSTACK_A  =====>\033[0m\n");
+			st_printstack((*stack_a)); */
 			mov_ra(stack_a, 0);
+		}	
 		else
+		{
+			/* ft_printf(" VALOR DO NODE %i ", node->value);
+			ft_printf(" VALOR DO TARGET %i | ", node->target->value);
+			ft_printf(" VALOR DO PRIMEIRO ITEM STACK %i\n", (*stack_a)->value); */
+			/* ft_printf("\033[1;31m========= MOV_PUT_ONTOP_A ========\033[0m\n");
+			ft_printf("\033[3;32mSTACK_A =====>>\033[0m\n");
+			st_printstack((*stack_a)); */
 			mov_rra(stack_a, 0);
+		}
+			
 	}
 }
 // put a specific node on top on stack_b

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mov_revrotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic>                        +#+  +:+       +#+        */
+/*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:53:02 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/10 15:40:57 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:32:01 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ void	mov_rra(t_stack **stack_a, int flag)
 	t_stack *new_last;
 
     if (*stack_a == NULL || (*stack_a)->next == NULL)
+    {
         return;
+    }
+    
+    
 	current = *stack_a;
    	new_last = NULL;
     while (current->next != NULL)
@@ -31,7 +35,7 @@ void	mov_rra(t_stack **stack_a, int flag)
     current->next = *stack_a;
     *stack_a = current;
     if (flag == 0)
-        ft_printf("rrb\n");
+        ft_printf("rra\n");
 }
 
 //(reverse rotate b): Shift down all elements of stack b by 1.
@@ -42,7 +46,10 @@ void mov_rrb(t_stack **stack_b, int flag)
 	t_stack *new_last;
 
     if (*stack_b == NULL || (*stack_b)->next == NULL)
+    {
         return;
+    }
+    
 	current = *stack_b;
    	new_last = NULL;
     while (current->next != NULL)

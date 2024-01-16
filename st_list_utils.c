@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:35:14 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/05 22:50:32 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:53:27 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,58 @@ void	st_list_free(t_stack *head)
 		current = next;
 	}
 }
+void		st_putmax_ontop(t_stack **stack)
+{
+	t_stack	*max_node;
+	t_stack	*temp;
+	int max_node_index;
+	int stack_size;
+	int	times;
+	
+	max_node = st_findbigger_node(stack);
+	max_node_index = max_node->index;
+	stack_size = st_nodes_counter(stack);
+	times = stack_size - max_node_index;
+	temp = *stack;
+	while (max_node->above_med == 1 && max_node_index > 0)
+	{
+			mov_rb(stack, 0);
+			max_node_index --;
+	}
 
+	while (max_node->above_med == 0 && times > 0)
+		{
+			mov_rrb(stack, 0);
+			times --;
+		}
+}
+
+void		st_putmin_ontop(t_stack **stack)
+{
+	t_stack	*min_node;
+	t_stack	*temp;
+	int min_node_index;
+	int stack_size;
+	int	times;
+	
+	
+	min_node = st_findlower_node(stack);
+	min_node_index = min_node->index;
+	stack_size = st_nodes_counter(stack);
+	times = stack_size - min_node_index;
+	temp = *stack;
+	while (min_node->above_med == 1 && min_node_index > 0)
+	{
+			mov_ra(stack, 0);
+			min_node_index --;
+	}
+
+	while (min_node->above_med == 0 && times > 0)
+		{
+			mov_rra(stack, 0);
+			times --;
+		}
+}
 /* int main(void)
 {
 	int	value_insert = 42;

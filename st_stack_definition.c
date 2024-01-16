@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   st_stack_definition.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic>                        +#+  +:+       +#+        */
+/*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:26:17 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/09 22:21:05 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:17:26 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	st_define_index(t_stack **stack)
 	new_index = 0;
 	while (temp != NULL)
 	{
-		if (new_index >= list_size / 2)
+		if (new_index > list_size / 2)
 			temp->above_med = 0;
 		else
 			temp->above_med = 1;
@@ -68,9 +68,8 @@ void	st_define_bigger_target(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack		*current_a;
 	t_stack		*temp_b;
-	t_stack		*target_node;
+	
 	int			biggest_value;
-
 	temp_b = *stack_b;
 	while (temp_b)
 	{
@@ -78,34 +77,31 @@ void	st_define_bigger_target(t_stack **stack_a, t_stack **stack_b)
 		current_a = *stack_a;
 		while (current_a)
 		{
-			if (current_a->value > temp_b->value && current_a->value < biggest_value)
+			if (current_a->value > temp_b->value && biggest_value > current_a->value)
 			{
 				biggest_value = current_a->value;
-				target_node = current_a;
+				temp_b->target = current_a;
 			}
 			current_a = current_a->next;
 		}
 		if (biggest_value == INT_MAX)
-			temp_b->target->value = st_findmin_value(stack_a);
-		else
-			temp_b->target = target_node;
+			temp_b->target = st_findlower_node(stack_a);
 		temp_b = temp_b->next;
 	}
 }
 //define qt_mov to top
-void	st_update_ab_values(t_stack **stack_a, t_stack **stack_b)
+void	st_update_b_values(t_stack **stack_a, t_stack **stack_b)
 {
-	st_define_index(stack_a);
 	st_define_index(stack_b);
-	st_define_lower_target(stack_a, stack_b);
-	st_calculate_qtmov(stack_a, stack_b);
+	st_define_bigger_target(stack_a, stack_b);
+	
 }
 
 void	st_update_a_values(t_stack **stack_a, t_stack **stack_b)
 {
-	st_define_bigger_target(stack_a, stack_b);
 	st_define_index(stack_a);
-	st_define_index(stack_b);
+	st_define_lower_target(stack_a, stack_b);
+	st_calculate_qtmov(stack_a, stack_b);
 }
 
 //Isolated test for st_define_index
