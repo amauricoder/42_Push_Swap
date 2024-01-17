@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 18:45:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/15 16:44:07 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/17 08:19:36 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ void	mov_ra(t_stack **stack_a, int flag)
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-	first_node = *stack_a; //primeiro node
+	first_node = *stack_a;
 	current = first_node->next;
 	while (current->next != NULL)
 		current = current->next;
-	current->next = *stack_a; // ultimo
-	
-	*stack_a = first_node->next; // o primeiro vira o segundk
-	
+	current->next = *stack_a;
+	*stack_a = first_node->next;
 	first_node->next = NULL;
 	if (flag == 0)
 		ft_printf("ra\n");

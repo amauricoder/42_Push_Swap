@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:38:08 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/15 17:46:35 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/17 08:31:06 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_stack	*st_findlower_node(t_stack **stack)
 	int		max_value;
 
 	if (stack == NULL)
-		return NULL;
+		return (NULL);
 	temp = *stack;
 	lower_node = NULL;
 	max_value = INT_MAX;

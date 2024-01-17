@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:35:14 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/16 22:53:27 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/17 08:24:07 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,15 @@ void	st_list_free(t_stack *head)
 		current = next;
 	}
 }
-void		st_putmax_ontop(t_stack **stack)
+
+void	st_putmax_ontop(t_stack **stack)
 {
 	t_stack	*max_node;
 	t_stack	*temp;
-	int max_node_index;
-	int stack_size;
-	int	times;
-	
+	int		max_node_index;
+	int		stack_size;
+	int		times;
+
 	max_node = st_findbigger_node(stack);
 	max_node_index = max_node->index;
 	stack_size = st_nodes_counter(stack);
@@ -74,26 +75,24 @@ void		st_putmax_ontop(t_stack **stack)
 	temp = *stack;
 	while (max_node->above_med == 1 && max_node_index > 0)
 	{
-			mov_rb(stack, 0);
-			max_node_index --;
+		mov_rb(stack, 0);
+		max_node_index --;
 	}
-
 	while (max_node->above_med == 0 && times > 0)
-		{
-			mov_rrb(stack, 0);
-			times --;
-		}
+	{
+		mov_rrb(stack, 0);
+		times --;
+	}
 }
 
-void		st_putmin_ontop(t_stack **stack)
+void	st_putmin_ontop(t_stack **stack)
 {
 	t_stack	*min_node;
 	t_stack	*temp;
-	int min_node_index;
-	int stack_size;
-	int	times;
-	
-	
+	int		min_node_index;
+	int		stack_size;
+	int		times;
+
 	min_node = st_findlower_node(stack);
 	min_node_index = min_node->index;
 	stack_size = st_nodes_counter(stack);
@@ -101,46 +100,12 @@ void		st_putmin_ontop(t_stack **stack)
 	temp = *stack;
 	while (min_node->above_med == 1 && min_node_index > 0)
 	{
-			mov_ra(stack, 0);
-			min_node_index --;
+		mov_ra(stack, 0);
+		min_node_index --;
 	}
-
 	while (min_node->above_med == 0 && times > 0)
-		{
-			mov_rra(stack, 0);
-			times --;
-		}
-}
-/* int main(void)
-{
-	int	value_insert = 42;
-	t_stack *new_node;
-
-	new_node = list_newitem(value_insert);
-	if (new_node != NULL)
-		ft_printf("Stack node created successfully. Value: %d\n", new_node->value);
-	else
-		ft_printf("Failed to create stack node.\n");
-	free(new_node);
-} */
-/* 
-int main(void)
-{
-	t_stack *list;
-	t_stack *current;
-	t_stack *new;
-	
-	list = st_newitem(1);
-	list->next = st_newitem(2);
-	list->next->next = st_newitem(3);
-	list->next->next->next = st_newitem(4);
-
-	new = st_newitem(5);
-	st_item_addback(&list, new);
-	current = list;
-	while(current != NULL)
 	{
-		ft_printf("%i\n", current->value);
-		current = current->next;
+		mov_rra(stack, 0);
+		times --;
 	}
-}  */
+}

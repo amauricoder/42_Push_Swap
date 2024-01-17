@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/16 19:43:03 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/17 08:32:22 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,6 @@ void		srt_sort_stack(t_stack **stack);
 void		srt_sort_three(t_stack **stack);
 void		srt_turc_algorithm(t_stack **stack_a, t_stack **stack_b);
 void		srt_pb_less_qtmov(t_stack **stack_a, t_stack **stack_b);
-void		st_null_all_targets(t_stack **stack_a, t_stack **stack_b);
 /******************************/
 /*     Sorting Calculation    */
 /* srt_sorting_calculation.c  */

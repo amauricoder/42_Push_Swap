@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 13:18:52 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/16 22:36:25 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/17 08:18:23 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 //have in consideration the lower index.
 t_stack	*srt_calc_lessmoves(t_stack **stack_a)
 {
-	t_stack *temp_a;
+	t_stack	*temp_a;
 	t_stack	*selected_node;
 	int		min_qtmoves;
-	
+
 	temp_a = *stack_a;
 	selected_node = NULL;
 	min_qtmoves = INT_MAX;
@@ -34,12 +34,13 @@ t_stack	*srt_calc_lessmoves(t_stack **stack_a)
 	}
 	return (selected_node);
 }
+
 //Calculate the quantity of moves its needed to put the nodes on top
 //have in consideration the target node.
 void	st_calculate_qtmov(t_stack **stack_a, t_stack **stack_b)
 {
-	int	size_a;
-	int	size_b;
+	int		size_a;
+	int		size_b;
 	t_stack	*temp;
 
 	size_a = st_nodes_counter(stack_a);
@@ -54,23 +55,10 @@ void	st_calculate_qtmov(t_stack **stack_a, t_stack **stack_b)
 			temp->qt_mov_top += temp->target->index;
 		else
 			temp->qt_mov_top += size_b - (temp->target->index);
-		/*if (temp->above_med == 0 && temp->target->above_med == 0)
-		{
-			if (temp->index > temp->target->index)
-				temp->qt_mov_top -= size_a - (temp->index);
-			else
-				temp->qt_mov_top -= size_b - (temp->target->index);
-		}
-		if (temp->above_med && temp->target->above_med)
-		{
-			if (temp->index > temp->target->index)
-				temp->qt_mov_top -= temp->target->index;
-			else
-				temp->qt_mov_top -= temp->index;
-		}*/
 		temp = temp->next;
 	}
 }
+
 //Find the max value on a list and return it.
 int	st_findmax_value(t_stack **stack)
 {
@@ -89,6 +77,7 @@ int	st_findmax_value(t_stack **stack)
 	}
 	return (max);
 }
+
 //Find the min value on a list and return it.
 int	st_findmin_value(t_stack **stack)
 {

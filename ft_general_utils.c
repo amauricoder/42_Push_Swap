@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:17:51 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/04 14:07:50 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/17 08:26:27 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ long long	ft_atol(const char *nptr)
 	number *= signal;
 	return (number);
 }
+
 //Return the absolute value of a number.
 int	ft_abs(int value)
 {
