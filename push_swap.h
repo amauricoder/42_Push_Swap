@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 08:32:29 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/18 09:40:27 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 /******************************/
 /*    MACROS ANSI ESCAPE      */
 /******************************/
-# define RESET   "\x1B[0m"
-# define RED     "\x1B[31m"
-# define GREEN   "\x1B[32m"
-# define YELLOW  "\x1B[33m"
-# define BLUE    "\x1B[34m"
-# define MAGENTA "\x1B[35m"
-# define CYAN    "\x1B[36m"
-# define WHITE   "\x1B[37m"
+# define RESET   "\033[0m"
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define YELLOW  "\033[33m"
+# define BLUE    "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN    "\033[36m"
+# define WHITE   "\033[37m"
+
 
 /******************************/
 /*          Librarys          */
