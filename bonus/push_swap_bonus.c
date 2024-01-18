@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:04 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 13:10:01 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:28:43 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	main(int argc, char **argv)
+int	main(void)
+{
+	//char	input;
+	//input = get_next_line(1);
+	ft_printf("WORKED");
+}
+int	push_swap_bonus(int argc, char **argv)
 {
 	t_stack	*stack_a;
 
@@ -34,7 +40,7 @@ int	main(int argc, char **argv)
 			st_list_free(stack_a);
 	}
 	else
-		write(2, "Error\n", 7);
+		ft_printf("Error\n");
 	if (argc == 2)
 		ft_free_all(argv);
 	return (0);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 10:44:50 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:31:13 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 /******************************/
 /*          Sources           */
 /******************************/
-# include "libft/libft.h"
-
+# include "../libft/libft.h"
+# include "get_next_line_bonus.h"
 /******************************/
 /*           Structs          */
 /******************************/
@@ -55,8 +55,8 @@ typedef struct s_stack
 /******************************/
 /*          push_swap.c       */
 /******************************/
-//int				main(void); 
-int			main(int argc, char **argv);
+int			main(void); 
+int			push_swap_bonus(int argc, char **argv);
 /******************************/
 /*        Validations         */
 /*     ft_val_functions.c     */
