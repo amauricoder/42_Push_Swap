@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 13:18:52 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/17 08:18:23 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/18 08:34:19 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_stack	*srt_calc_lessmoves(t_stack **stack_a)
 
 //Calculate the quantity of moves its needed to put the nodes on top
 //have in consideration the target node.
-void	st_calculate_qtmov(t_stack **stack_a, t_stack **stack_b)
+void	st_calc_qtmov(t_stack **stack_a, t_stack **stack_b)
 {
 	int		size_a;
 	int		size_b;
@@ -48,13 +48,15 @@ void	st_calculate_qtmov(t_stack **stack_a, t_stack **stack_b)
 	temp = *stack_a;
 	while (temp)
 	{
-		temp->qt_mov_top = temp->index;
 		if (temp->above_med == 0)
 			temp->qt_mov_top = size_a - (temp->index);
+		else
+			temp->qt_mov_top = temp->index;
 		if (temp->target->above_med == 1)
 			temp->qt_mov_top += temp->target->index;
 		else
 			temp->qt_mov_top += size_b - (temp->target->index);
+		st_calc_movtg(stack_a, stack_b, temp);
 		temp = temp->next;
 	}
 }
@@ -95,4 +97,23 @@ int	st_findmin_value(t_stack **stack)
 		temp = temp->next;
 	}
 	return (min);
+}
+
+void	st_calc_movtg(t_stack **stack_a, t_stack **stack_b, t_stack *node)
+{
+	if (node->above_med == 1 && node->target->above_med == 1)
+	{
+		if (node->index < node->target->index)
+			node->qt_mov_top -= node->index;
+		else
+			node->qt_mov_top -= node->target->index;
+	}
+	else if (node->above_med == 0 && node->target->above_med == 0)
+	{
+		if (st_nodes_counter(stack_a) - node->index 
+			< st_nodes_counter(stack_b) - node->target->index)
+			node->qt_mov_top -= st_nodes_counter(stack_a) - node->index;
+		else
+			node->qt_mov_top -= st_nodes_counter(stack_b) - node->target->index;
+	}
 }

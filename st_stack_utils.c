@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:38:08 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/17 08:31:06 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/18 08:04:40 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,22 @@ t_stack	*st_init_stack(char **argv)
 //st_printstack() prints all the values of the nodes in the list
 void	st_printstack(t_stack *stack)
 {
+	ft_printf("\n");
+	ft_printf("\n");
 	while (stack != NULL)
 	{
-		ft_printf("Value => %i ", stack->value);
-		ft_printf("Index => %i ", stack->index);
-		ft_printf("Qt_mov_top => %i ", stack->qt_mov_top);
-		ft_printf("Above Med => %i ", stack->above_med);
+		ft_printf(GREEN "Value | %i | " RESET, stack->value);
+		ft_printf(BLUE "Index | %i | " RESET, stack->index);
+		ft_printf(MAGENTA "Qt_mov | %i | " RESET, stack->qt_mov_top);
+		ft_printf(CYAN "Above Med | %i | " RESET, stack->above_med);
 		if (stack->target != NULL)
-			ft_printf("Target => %i\n", stack->target->value);
+			ft_printf(YELLOW "Target | %i | " RESET, stack->target->value);
 		else
-			ft_printf("Target => NULL\n");
+			ft_printf(RED "Target => NULL\n" RESET);
+		ft_printf("\n");
 		stack = stack->next;
 	}
+	ft_printf("\n");
 }
 
 //count how many nodes exists. Return the number of nodes.

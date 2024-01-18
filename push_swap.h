@@ -6,12 +6,24 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/17 08:32:22 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/18 08:32:29 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+/******************************/
+/*    MACROS ANSI ESCAPE      */
+/******************************/
+# define RESET   "\x1B[0m"
+# define RED     "\x1B[31m"
+# define GREEN   "\x1B[32m"
+# define YELLOW  "\x1B[33m"
+# define BLUE    "\x1B[34m"
+# define MAGENTA "\x1B[35m"
+# define CYAN    "\x1B[36m"
+# define WHITE   "\x1B[37m"
 
 /******************************/
 /*          Librarys          */
@@ -132,7 +144,8 @@ void		srt_pb_less_qtmov(t_stack **stack_a, t_stack **stack_b);
 /* srt_sorting_calculation.c  */
 /******************************/
 t_stack		*srt_calc_lessmoves(t_stack **stack_a);
-void		st_calculate_qtmov(t_stack **stack_a, t_stack **stack_b);
+void		st_calc_qtmov(t_stack **stack_a, t_stack **stack_b);
+void		st_calc_movtg(t_stack **stack_a, t_stack **stack_b, t_stack *node);
 int			st_findmax_value(t_stack **stack);
 int			st_findmin_value(t_stack **stack);
 #endif

@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:26:17 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/17 08:26:02 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/18 08:31:54 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	st_define_index(t_stack **stack)
 // if there is no lowest close value possible, then it's the maximum
 void	st_define_lower_target(t_stack **stack_a, t_stack **stack_b)
 {
-	int		lowest_value;
+	long	lowest_value;
 	t_stack	*temp_a;
 	t_stack	*temp_b;
 
@@ -47,7 +47,7 @@ void	st_define_lower_target(t_stack **stack_a, t_stack **stack_b)
 	while (temp_a != NULL)
 	{
 		temp_b = *stack_b;
-		lowest_value = INT_MIN;
+		lowest_value = -2147483649;
 		while (temp_b != NULL)
 		{
 			if (temp_a->value > temp_b->value && lowest_value < temp_b->value)
@@ -57,7 +57,7 @@ void	st_define_lower_target(t_stack **stack_a, t_stack **stack_b)
 			}
 			temp_b = temp_b->next;
 		}
-		if (lowest_value == INT_MIN)
+		if (lowest_value == -2147483649)
 			temp_a->target = st_findbigger_node(stack_b);
 		temp_a = temp_a->next;
 	}
@@ -69,12 +69,12 @@ void	st_define_bigger_target(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack		*current_a;
 	t_stack		*temp_b;
-	int			biggest_value;
+	long		biggest_value;
 
 	temp_b = *stack_b;
 	while (temp_b)
 	{
-		biggest_value = INT_MAX;
+		biggest_value = 2147483648;
 		current_a = *stack_a;
 		while (current_a)
 		{
@@ -86,7 +86,7 @@ void	st_define_bigger_target(t_stack **stack_a, t_stack **stack_b)
 			}
 			current_a = current_a->next;
 		}
-		if (biggest_value == INT_MAX)
+		if (biggest_value == 2147483648)
 			temp_b->target = st_findlower_node(stack_a);
 		temp_b = temp_b->next;
 	}
@@ -103,5 +103,5 @@ void	st_update_a_values(t_stack **stack_a, t_stack **stack_b)
 {
 	st_define_index(stack_a);
 	st_define_lower_target(stack_a, stack_b);
-	st_calculate_qtmov(stack_a, stack_b);
+	st_calc_qtmov(stack_a, stack_b);
 }
