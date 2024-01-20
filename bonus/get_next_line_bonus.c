@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:49:08 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 14:13:37 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/20 15:11:22 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,18 @@ char	*update_stash(char *old_stash)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*stash[FOPEN_MAX];
+	char		*stash;
 
+	stash = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)
 		return (NULL);
-	stash[fd] = read_line(fd, stash[fd]);
-	if (!stash[fd])
+	stash = read_line(fd, stash);
+	if (!stash)
 		return (NULL);
-	line = extract_excedent(stash[fd]);
-	stash[fd] = update_stash(stash[fd]);
+	line = extract_excedent(stash);
+	free(stash);
+	/* stash = update_stash(stash);
+	free(stash); */
 	return (line);
 }
 /*

@@ -24,7 +24,7 @@ RM = rm -rf
 LIBFTDIR = libft/
 LIBFTLIB = libft/libft.a
 
-SRC = $(wildcard *.c)
+SRC = $(filter-out push_swap.c, $(wildcard *.c))
 
 OBJ = $(addprefix $(OBJDIR), $(SRC:.c=.o))
 OBJDIR = objs/
@@ -55,7 +55,7 @@ $(OBJDIR) :
 #compile the project
 $(NAME) : $(OBJ) $(LIBFTLIB)
 	@echo "$(YELLOW)[!] $(STOP_COLOR)COMPILING PROJECT "
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFTLIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) push_swap.c $(LIBFTLIB) -o $(NAME)
 	@echo "$(GREEN)[✔]$(RESET) $(BLUE)OK$(RESET)"
 
 #compile the objects and display a message for the first time created
@@ -111,9 +111,9 @@ $(BONUS_OBJDIR)%.o : bonus/%.c | $(BONUS_OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(GREEN)[✔]$(STOP_COLOR) COMPILED $<"
 
-$(BONUS_NAME) : $(BONUS_OBJDIR) $(BONUS_OBJ) $(LIBFTLIB)
+$(BONUS_NAME) : $(BONUS_OBJDIR) $(BONUS_OBJ) $(OBJ) $(LIBFTLIB)
 	@echo "$(YELLOW)[!] $(STOP_COLOR)COMPILING BONUS "
-	$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIBFTLIB) -o bonus/$(BONUS_NAME)
+	$(CC) $(CFLAGS) $(BONUS_OBJ) $(OBJ) $(LIBFTLIB) -o bonus/$(BONUS_NAME)
 	@echo "$(GREEN)[✔]$(RESET) $(BLUE)OK$(RESET)"
 
 bonus_clean :

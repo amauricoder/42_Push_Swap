@@ -6,79 +6,56 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 14:13:27 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/20 20:07:39 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 //general validation function. Contains three other validations inside.
 //return 1 if every validation pass.
-int	validade_input(char **argv)
+int	validade_input_bonus(char **argv)
 {
-	if (!(validade_format(argv)) || !(validade_duplication(argv)) 
-		|| !(validade_nbrlimits(argv)))
-	{
-		ft_printf("Entered in validade_input\n");
+ 	if ((!(validade_format_bonus(argv)) || !(validade_duplication(argv)) 
+		|| !(validade_nbrlimits(argv))))
 		return (0);
-	}
+/* 	ft_printf(" => %i\n ", validade_format_bonus(argv));
+	ft_printf(" => %i\n ", validade_duplication(argv));
+	ft_printf(" => %i\n ", validade_nbrlimits(argv)); */
 	return (1);
 }
 
-//Validade int limits. Return 1 for a number that is valid, and 0 instead.
-int	validade_nbrlimits(char **number)
+void validade_check_flag(char **argv, t_flags *flags)
 {
-	int	i;
-
+	int i;
+	
 	i = 0;
-	while (number[i] != NULL)
+	flags->disp_c = 0;
+	flags->disp_s = 0;
+	while(argv[i])
 	{
-		if (ft_atol(number[i]) >= 2147483647 
-			|| ft_atol(number[i]) <= -2147483648)
-			return (0);
-		else
-			return (1);
+		if (argv[i][0] == '-')
+		{
+			if (argv[i][1] == 'c')
+				flags->disp_c = 1;
+			else if (argv[i][1] == 'v')
+				flags->disp_s = 1;
+		}
 		i ++;
 	}
-	return (1);
-}
-
-//Validade duplicate numbers. Return 1 if there is no dupli, and 0 instead.
-int	validade_duplication(char **number)
-{
-	int	i;
-	int	j;
-	int	repeated;
-
-	i = 0;
-	j = 0;
-	repeated = 0;
-	while (number[i] != (void *)0)
-	{
-		j = i + 1;
-		while (number[j] != (void *)0)
-		{
-			if (ft_strcmp(number[j], number[i]) == 0)
-				repeated++;
-			j++;
-		}
-		i++;
-	}
-	if (repeated > 0)
-		return (0);
-	return (1);
 }
 
 //Guarantee that the digits are on a valid input.
 //Return 1 for valid input and 0 instead.
-int	validade_format(char **argv)
+int	validade_format_bonus(char **argv)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 0;
-	while (argv[i] != (void *)0)
+	while (argv[++i] != (void *)0)
 	{
+		if (ft_strcmp(argv[i], "-c") == 0 || ft_strcmp(argv[i], "-s") == 0)
+			continue;
 		j = 0;
 		if (argv[i][0] == '\0')
 			return (0);
@@ -91,7 +68,6 @@ int	validade_format(char **argv)
 				return (0);
 			j ++;
 		}
-		i ++;
 	}
 	return (1);
 }

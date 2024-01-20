@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_val_functions.c                                 :+:      :+:    :+:   */
+/*   ft_val_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic>                        +#+  +:+       +#+        */
+/*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/08 13:53:45 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:40:35 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ int	validade_input(char **argv)
 {
 	if (!(validade_format(argv)) || !(validade_duplication(argv)) 
 		|| !(validade_nbrlimits(argv)))
-	{
-		ft_printf("Entered in validade_input\n");
 		return (0);
-	}
 	return (1);
 }
 

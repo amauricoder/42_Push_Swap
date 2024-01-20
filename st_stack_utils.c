@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:38:08 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 08:04:40 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:55:01 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,7 @@ void	st_printstack(t_stack *stack)
 	ft_printf("\n");
 	while (stack != NULL)
 	{
-		ft_printf(GREEN "Value | %i | " RESET, stack->value);
-		ft_printf(BLUE "Index | %i | " RESET, stack->index);
-		ft_printf(MAGENTA "Qt_mov | %i | " RESET, stack->qt_mov_top);
-		ft_printf(CYAN "Above Med | %i | " RESET, stack->above_med);
-		if (stack->target != NULL)
-			ft_printf(YELLOW "Target | %i | " RESET, stack->target->value);
-		else
-			ft_printf(RED "Target => NULL\n" RESET);
+		ft_printf(GREEN "Value | %i | \n" RESET, stack->value);
 		ft_printf("\n");
 		stack = stack->next;
 	}
