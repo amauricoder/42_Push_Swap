@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 10:44:50 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:13:34 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int			ft_abs(int value);
 t_stack		*st_init_stack(char **argv);
 t_stack		*st_findbigger_node(t_stack **stack);
 t_stack		*st_findlower_node(t_stack **stack);
-void		st_printstack(t_stack *stack);
+void		st_printstack(t_stack *stack, char stack_letter);
 int			st_nodes_counter(t_stack **stack);
 /******************************/
 /*           Stack            */

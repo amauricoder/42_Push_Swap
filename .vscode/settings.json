@@ -3,6 +3,8 @@
         "stdlib.h": "c",
         "get_next_line_bonus.h": "c",
         "push_swap.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "push_swap_bonus.h": "c",
+        "checker_bonus.h": "c"
     }
 }

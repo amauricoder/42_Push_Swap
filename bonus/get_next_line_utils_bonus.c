@@ -6,12 +6,12 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:50:04 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/20 15:04:38 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:44:55 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-#include "push_swap_bonus.h"
+#include "checker_bonus.h"
 
 void	*ft_calloc_gnl(size_t nmemb, size_t size)
 {

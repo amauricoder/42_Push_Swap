@@ -5,52 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 20:29:04 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/20 19:29:59 by aconceic         ###   ########.fr       */
+/*   Created: 2024/01/20 19:20:06 by aconceic          #+#    #+#             */
+/*   Updated: 2024/01/21 20:59:48 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap_bonus.h"
+# include "checker_bonus.h"
 
 int	main(int argc, char **argv)
 {
 	char	*input;
 	t_flags *flags;
-	
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
 	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
 		return (0);
-
-	flags = malloc(sizeof(t_flags));
-	if (!flags)
-		return (0);
-	validade_check_flag(argv, flags);
-	input = get_next_line(0);
 	
+	argv = st_define_argv(argc, argv);
+	flags = validade_check_flag(argv);
 	if (validade_input_bonus(argv) == 1)
 	{
-		ft_printf("entrou no if \n");
-		while (input != NULL)
-		{
-				ft_printf("WORKED => %s", input);
-				free(input);
-				input = get_next_line(0);
-		}
+		input = get_next_line(0);
+		stack_a = st_init_stack_a(argv, flags);
+		stack_b = NULL;
+		compare_input(&stack_a, &stack_b, input, flags);
+		free_stacks(stack_a, stack_b);
+		free(input);
 	}
-	
-	ft_printf("COLOR %i \n", flags->disp_c);
-	ft_printf("STACK %i \n", flags->disp_s);
-	free(input);
+	else
+		write(2, "Error\n", 6);
 	free(flags);
+	if (argc == 2)
+		ft_free_all(argv);
+	return (0);
+}
+void	free_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	free (stack_a);
+	free (stack_b);
 }
 
+void	error_message(void)
+{
+	write(2, "Error\n", 7);
+	exit (0);
+}
+/* 
 int	push_swap_bonus(int argc, char **argv)
 {
 	t_stack	*stack_a;
 
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	else
-		argv = argv + 1;
+	
 	if (validade_input_bonus(argv) == 1)
 	{
 		stack_a = st_init_stack(argv);
@@ -63,8 +69,7 @@ int	push_swap_bonus(int argc, char **argv)
 			st_list_free(stack_a);
 	}
 	else
-		ft_printf("Error\n");
-	if (argc == 2)
-		ft_free_all(argv);
+		write(2, "Error\n", 7);
+	
 	return (0);
-}
+} */

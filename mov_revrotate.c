@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:53:02 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/17 08:16:14 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:00:37 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	mov_rra(t_stack **stack_a, int flag)
 	*stack_a = current;
 	if (flag == 0)
 		ft_printf("rra\n");
+	if (flag == 2)
+		ft_printf(RED"rra\n"RESET);
 }
 
 //(reverse rotate b): Shift down all elements of stack b by 1.
@@ -59,6 +61,8 @@ void	mov_rrb(t_stack **stack_b, int flag)
 	*stack_b = current;
 	if (flag == 0)
 		ft_printf("rrb\n");
+	if (flag == 2)
+		ft_printf(RED"rrb\n"RESET);
 }
 
 //mov_rra and mov_rrb at the same time.

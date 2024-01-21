@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 18:44:55 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/17 08:30:42 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:07:38 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	mov_sa(t_stack **stack_a, int flag)
 	*stack_a = temp;
 	if (flag == 0)
 		ft_printf("sa\n");
+	if (flag == 2)
+		ft_printf(RED"sa\n"RESET);
 	return ;
 }
 
@@ -43,6 +45,8 @@ void	mov_sb(t_stack **stack_b, int flag)
 	*stack_b = temp;
 	if (flag == 0)
 		ft_printf("sb\n");
+	if (flag == 2)
+		ft_printf(RED"sb\n"RESET);
 	return ;
 }
 

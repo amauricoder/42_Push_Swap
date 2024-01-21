@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:38:08 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/20 18:55:01 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:19:37 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,22 @@ t_stack	*st_init_stack(char **argv)
 }
 
 //st_printstack() prints all the values of the nodes in the list
-void	st_printstack(t_stack *stack)
+void	st_printstack(t_stack *stack, char stack_letter)
 {
-	ft_printf("\n");
-	ft_printf("\n");
-	while (stack != NULL)
+	if (stack_letter == 'a')
+		ft_printf("STACK A \n");
+	else if (stack_letter == 'b')
+		ft_printf("STACK B \n");
+	if (stack != NULL)
 	{
-		ft_printf(GREEN "Value | %i | \n" RESET, stack->value);
-		ft_printf("\n");
-		stack = stack->next;
+		while (stack != NULL)
+		{
+			ft_printf("=> %i \n", stack->value);
+			stack = stack->next;
+		}
 	}
+	else
+		ft_printf("EMPTY \n");
 	ft_printf("\n");
 }
 

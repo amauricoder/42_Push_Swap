@@ -6,12 +6,12 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:49:08 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/20 15:11:22 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:24:01 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-#include "push_swap_bonus.h"
+#include "checker_bonus.h"
 
 char	*read_line(int fd, char *stash)
 {
@@ -108,11 +108,13 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = extract_excedent(stash);
 	free(stash);
-	/* stash = update_stash(stash);
-	free(stash); */
 	return (line);
 }
 /*
+//JUST A REMINDER FOR CHANGES IN GNL
+stash = update_stash(stash);
+	free(stash);
+
 int	main(void)
 {
 	int		fd;
