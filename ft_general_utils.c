@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:17:51 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/21 15:49:28 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:20:50 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,14 @@ int	ft_abs(int value)
 		return (value * -1);
 	else
 		return (value);
+}
+
+int	ft_argument_counter(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i] != (void *)0)
+		i ++;
+	return (i);
 }

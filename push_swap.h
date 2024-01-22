@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/21 17:13:34 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:53:52 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int			validade_input(char **argv);
 int			validade_format(char **argv);
 int			validade_nbrlimits(char **number);
 int			validade_duplication(char **number);
+void		error_message(void);
 /******************************/
 /*       General utils        */
 /*     ft_general_utils.c     */
@@ -73,6 +74,7 @@ int			ft_strcmp(char *s1, char *s2);
 int			ft_free_all(char **str);
 long long	ft_atol(const char *nptr);
 int			ft_abs(int value);
+int			ft_argument_counter(char **argv);
 /******************************/
 /*           Stack            */
 /*      st_stack_utils.c      */

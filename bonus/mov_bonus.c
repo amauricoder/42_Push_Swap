@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:55:15 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/21 18:26:10 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:46:22 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	mov_ss_bonus(t_stack **stack_a, t_stack **stack_b)
 	return ;
 }
 
-void	mov_rr_bonus(t_stack **stack_a, t_stack **stack_b)
+void	mov_rr_bonus(t_stack **stack_a, t_stack **stack_b, int flag)
 {
 	mov_ra(stack_a, 1);
 	mov_rb(stack_b, 1);
-	ft_printf(RED"rr\n"RESET);
+	if (flag == 2)
+		ft_printf(RED"rr\n"RESET);
 }
 
 void	mov_rrr_bonus(t_stack **stack_a, t_stack **stack_b)
@@ -49,7 +50,7 @@ void	mov_pa_bonus(t_stack **stack_a, t_stack **stack_b)
 	ft_printf(RED"pa\n"RESET);
 }
 
-void	mov_pb_bonus(t_stack **stack_a, t_stack **stack_b)
+void	mov_pb_bonus(t_stack **stack_a, t_stack **stack_b, int flag)
 {
 	t_stack	*a_first_element;
 	t_stack	*b_first_element;
@@ -61,5 +62,7 @@ void	mov_pb_bonus(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = a_first_element->next;
 	a_first_element->next = b_first_element;
 	*stack_b = a_first_element;
-	ft_printf(RED"pb\n"RESET);
+	if (flag == 2)
+		ft_printf(RED"pb\n"RESET);
+	(void)flag;
 }

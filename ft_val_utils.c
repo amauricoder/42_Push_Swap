@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/20 19:40:35 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:52:46 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,28 @@ int	validade_duplication(char **number)
 {
 	int	i;
 	int	j;
+	int	*numeric_values;
+	int	numeric_value;
 	int	repeated;
 
 	i = 0;
 	j = 0;
 	repeated = 0;
+	numeric_values = (int *)malloc(sizeof(int) * ft_argument_counter(number));
 	while (number[i] != (void *)0)
 	{
-		j = i + 1;
-		while (number[j] != (void *)0)
+		numeric_value = atoi(number[i]);
+		numeric_values[i] = numeric_value;
+		j = 0;
+		while (j < i)
 		{
-			if (ft_strcmp(number[j], number[i]) == 0)
-				repeated++;
+			if (numeric_values[j] == numeric_value)
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	if (repeated > 0)
-		return (0);
+	free(numeric_values);
 	return (1);
 }
 
@@ -79,7 +83,8 @@ int	validade_format(char **argv)
 		j = 0;
 		if (argv[i][0] == '\0')
 			return (0);
-		if (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
+		if (!(ft_isdigit(argv[i][j]) 
+			|| (argv[i][j] == '-' && ft_isdigit(argv[i][j + 1]))))
 			return (0);
 		j ++;
 		while (argv[i][j] != '\0')
@@ -91,6 +96,12 @@ int	validade_format(char **argv)
 		i ++;
 	}
 	return (1);
+}
+
+void	error_message(void)
+{
+	write(2, "Error\n", 6);
+	exit (0);
 }
 //main for functions testing purposes
 //comment push_swap.h before testing this functions, to prevent incompatibility.

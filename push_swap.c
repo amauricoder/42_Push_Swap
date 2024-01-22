@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:04 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/18 13:10:01 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:33:19 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 			st_list_free(stack_a);
 	}
 	else
-		write(2, "Error\n", 7);
+		write(2, "Error\n", 6);
 	if (argc == 2)
 		ft_free_all(argv);
 	return (0);
