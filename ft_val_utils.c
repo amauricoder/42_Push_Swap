@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/23 07:38:06 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/23 09:25:40 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	validade_nbrlimits(char **number)
 		if (ft_atol(number[i]) >= 2147483647 
 			|| ft_atol(number[i]) <= -2147483648)
 			return (0);
-		else
-			return (1);
 		i ++;
 	}
 	return (1);
