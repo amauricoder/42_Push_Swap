@@ -6,13 +6,15 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/22 11:30:42 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/23 08:34:37 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 //general validation function. Contains three other validations inside.
 //return 1 if every validation pass.
+//also define the argv depending if there are flags or not
+//and check if there is only flags without any other paramether
 int	validade_input_bonus(char **argv, t_flags *flags)
 {
 	if (flags->disp_c && flags->disp_s)
@@ -21,12 +23,18 @@ int	validade_input_bonus(char **argv, t_flags *flags)
 		argv = argv + 1;
 	else if (flags->disp_s)
 		argv = argv + 1;
+	if (((flags->disp_c || flags->disp_s) && *argv == NULL) 
+		|| ((flags->disp_c && flags->disp_s) && *argv == NULL))
+		return (0);
 	if ((!(validade_format_bonus(argv)) || !(validade_duplication(argv)) 
 			|| !(validade_nbrlimits(argv))))
 		return (0);
 	return (1);
 }
 
+//check if there are flags on the paramethers
+//if yes, put 1 to the correspondent value on the flags structure
+//return a pointer to the flags structure
 t_flags	*validade_check_flag(char **argv)
 {
 	int		i;
@@ -80,6 +88,8 @@ int	validade_format_bonus(char **argv)
 	return (1);
 }
 
+//compare the input with the available moviments
+//if its the same, to the moviment
 void	validade_movs(char *input, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strcmp(input, "sa\n") == 0)
@@ -99,7 +109,7 @@ void	validade_movs(char *input, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strcmp(input, "rrb\n") == 0)
 		mov_rrb(stack_b, 1);
 	else if (ft_strcmp(input, "rrr\n") == 0)
-		mov_rrr(stack_a, stack_b);
+		mov_rrr_bonus(stack_a, stack_b, 0);
 	else if (ft_strcmp(input, "pa\n") == 0)
 		mov_pa(stack_a, stack_b);
 	else if (ft_strcmp(input, "pb\n") == 0)
@@ -108,6 +118,10 @@ void	validade_movs(char *input, t_stack **stack_a, t_stack **stack_b)
 		error_message();
 }
 
+//compare the input with the available moviments
+//if its the same, to the moviment
+//the difference of valid_movs() and valid_movs_color()
+//its that the color print red
 void	valid_movs_color(char *input, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strcmp(input, "sa\n") == 0)
@@ -127,7 +141,7 @@ void	valid_movs_color(char *input, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strcmp(input, "rrb\n") == 0)
 		mov_rrb(stack_b, 2);
 	else if (ft_strcmp(input, "rrr\n") == 0)
-		mov_rrr_bonus(stack_a, stack_b);
+		mov_rrr_bonus(stack_a, stack_b, 2);
 	else if (ft_strcmp(input, "pa\n") == 0)
 		mov_pa_bonus(stack_a, stack_b);
 	else if (ft_strcmp(input, "pb\n") == 0)

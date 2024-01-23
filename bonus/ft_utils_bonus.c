@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:54:54 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/22 11:29:12 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/23 07:50:25 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,14 @@ void	*st_init_stack_a(char **argv, t_flags *flags)
 		stack_a = st_init_stack(argv + 1);
 	else
 		stack_a = st_init_stack(argv);
+	if (srt_verify_sorting(&stack_a))
+	{
+		free_one_stack(stack_a);
+		free(flags);
+		ft_free_all(argv);
+		printf("OK\n");
+		exit (0);
+	}
 	return (stack_a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/22 10:52:46 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/23 07:38:06 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,11 @@ int	validade_duplication(char **number)
 	int	j;
 	int	*numeric_values;
 	int	numeric_value;
-	int	repeated;
 
-	i = 0;
+	i = -1;
 	j = 0;
-	repeated = 0;
 	numeric_values = (int *)malloc(sizeof(int) * ft_argument_counter(number));
-	while (number[i] != (void *)0)
+	while (number[++i] != (void *)0)
 	{
 		numeric_value = atoi(number[i]);
 		numeric_values[i] = numeric_value;
@@ -60,10 +58,12 @@ int	validade_duplication(char **number)
 		while (j < i)
 		{
 			if (numeric_values[j] == numeric_value)
+			{
+				free(numeric_values);
 				return (0);
+			}
 			j++;
 		}
-		i++;
 	}
 	free(numeric_values);
 	return (1);

@@ -5,6 +5,7 @@
         "push_swap.h": "c",
         "unistd.h": "c",
         "push_swap_bonus.h": "c",
-        "checker_bonus.h": "c"
+        "checker_bonus.h": "c",
+        "libft.h": "c"
     }
 }
