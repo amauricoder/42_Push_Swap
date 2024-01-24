@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/23 08:23:48 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:40:37 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ typedef struct s_flags
 /******************************/
 int			main(int argc, char **argv);
 void		free_stacks(t_stack *stack_a, t_stack *stack_b);
-void		error_message(void);
 char		*ft_joinfree(char *s1, char *s2);
 void		free_one_stack(t_stack *stack);
+int			ft_isalpha_flags(char *str);
 /******************************/
 /*        Val BONUS           */
 /*    ft_val_utils_bonus.c    */
@@ -58,10 +58,10 @@ void		valid_movs_color(char *input, t_stack **stack_a, t_stack **stack_b);
 /*          MOV_BONUS         */
 /*         mov_bonus.c        */
 /******************************/
-void		mov_ss_bonus(t_stack **stack_a, t_stack **stack_b);
+void		mov_ss_bonus(t_stack **stack_a, t_stack **stack_b, int flag);
 void		mov_rr_bonus(t_stack **stack_a, t_stack **stack_b, int flag);
 void		mov_rrr_bonus(t_stack **stack_a, t_stack **stack_b, int flag);
-void		mov_pa_bonus(t_stack **stack_a, t_stack **stack_b);
+void		mov_pa_bonus(t_stack **stack_a, t_stack **stack_b, int flag);
 void		mov_pb_bonus(t_stack **stack_a, t_stack **stack_b, int flag);
 /******************************/
 /*        BONUS UTILS         */

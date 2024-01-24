@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:20:06 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/23 08:22:49 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:15:56 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		return (0);
 	tmp = st_define_argv(argv);
 	flags = validade_check_flag(tmp);
-	if (validade_input_bonus(tmp, flags) == 1 && ft_isalpha(argv[1][0]) == 0)
+	if (validade_input_bonus(tmp, flags) == 1)
 	{
 		stack_a = st_init_stack_a(tmp, flags);
 		stack_b = NULL;
@@ -84,4 +84,26 @@ void	free_one_stack(t_stack *stack)
 		free(stack);
 		stack = tmp;
 	}
+}
+
+int	ft_isalpha_flags(char *str)
+{
+	int	i;
+
+	i = 1;
+	if ((str[0] == '-' && str[1] == 'c' && str[2] == '\0')
+		|| (str[0] == '-' && str[1] == 's' && str[2] == '\0'))
+		return (1);
+	else if ((str[0] == '-' && str[1] >= '0' && str[1] <= '9') 
+		|| (str[0] >= '0' && str[0] <= '9'))
+	{
+		while (str[i])
+		{
+			if (!(ft_isdigit(str[i])))
+				return (0);
+			i ++;
+		}
+		return (1);
+	}
+	return (0);
 }

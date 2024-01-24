@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/23 08:34:37 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:41:18 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	validade_input_bonus(char **argv, t_flags *flags)
 		|| ((flags->disp_c && flags->disp_s) && *argv == NULL))
 		return (0);
 	if ((!(validade_format_bonus(argv)) || !(validade_duplication(argv)) 
-			|| !(validade_nbrlimits(argv))))
+			|| !(validade_nbrlimits(argv)) || !ft_isalpha_flags(argv[0])))
 		return (0);
 	return (1);
 }
@@ -97,7 +97,7 @@ void	validade_movs(char *input, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strcmp(input, "sb\n") == 0)
 		mov_sb(stack_b, 1);
 	else if (ft_strcmp(input, "ss\n") == 0)
-		mov_ss(stack_a, stack_b);
+		mov_ss_bonus(stack_a, stack_b, 0);
 	else if (ft_strcmp(input, "ra\n") == 0)
 		mov_ra(stack_a, 1);
 	else if (ft_strcmp(input, "rb\n") == 0)
@@ -111,7 +111,7 @@ void	validade_movs(char *input, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strcmp(input, "rrr\n") == 0)
 		mov_rrr_bonus(stack_a, stack_b, 0);
 	else if (ft_strcmp(input, "pa\n") == 0)
-		mov_pa(stack_a, stack_b);
+		mov_pa_bonus(stack_a, stack_b, 0);
 	else if (ft_strcmp(input, "pb\n") == 0)
 		mov_pb_bonus(stack_a, stack_b, 0);
 	else
@@ -129,7 +129,7 @@ void	valid_movs_color(char *input, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strcmp(input, "sb\n") == 0)
 		mov_sb(stack_b, 2);
 	else if (ft_strcmp(input, "ss\n") == 0)
-		mov_ss_bonus(stack_a, stack_b);
+		mov_ss_bonus(stack_a, stack_b, 2);
 	else if (ft_strcmp(input, "ra\n") == 0)
 		mov_ra(stack_a, 2);
 	else if (ft_strcmp(input, "rb\n") == 0)
@@ -143,7 +143,7 @@ void	valid_movs_color(char *input, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strcmp(input, "rrr\n") == 0)
 		mov_rrr_bonus(stack_a, stack_b, 2);
 	else if (ft_strcmp(input, "pa\n") == 0)
-		mov_pa_bonus(stack_a, stack_b);
+		mov_pa_bonus(stack_a, stack_b, 2);
 	else if (ft_strcmp(input, "pb\n") == 0)
 		mov_pb_bonus(stack_a, stack_b, 2);
 	else
