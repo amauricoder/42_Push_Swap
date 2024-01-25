@@ -56,7 +56,7 @@ $(OBJDIR) :
 $(NAME) : $(OBJ) $(LIBFTLIB)
 	@echo "$(YELLOW)[!] $(STOP_COLOR)COMPILING PROJECT "
 	$(CC) $(CFLAGS) $(OBJ) push_swap.c $(LIBFTLIB) -o $(NAME)
-	@echo "$(GREEN)[✔]$(RESET) $(BLUE)OK$(RESET)"
+	@echo "$(GREEN)[✔]$(STOP_COLOR) $(BLUE)OK$(STOP_COLOR)"
 
 #compile the objects and display a message for the first time created
 #or in case of modification
@@ -80,18 +80,18 @@ clean :
 	echo "$(YELLOW)[!] $(STOP_COLOR)CLEANING"
 	rm -rf $(OBJDIR)
 	make clean -C $(LIBFTDIR)
-	echo "$(GREEN)[✔]$(RESET) $(BLUE)CLEAN DONE.$(RESET)"
+	echo "$(GREEN)[✔]$(STOP_COLOR) $(BLUE)CLEAN DONE.$(STOP_COLOR)"
 
 #clean the .o objects, the objs folder and the project file.
 fclean :
 	echo "$(YELLOW)[!] $(STOP_COLOR)FULL CLEANING"
 	$(RM) $(NAME) $(OBJDIR)
 	make fclean -C $(LIBFTDIR)
-	echo "$(GREEN)[✔]$(RESET) $(BLUE)FULL CLEANING DONE. $(RESET)"
+	echo "$(GREEN)[✔]$(STOP_COLOR) $(BLUE)FULL CLEANING DONE. $(STOP_COLOR)"
 
 #refresh the project
 re : fclean all
-	echo "$(GREEN)[✔]$(RESET) $(MAGENTA)REFRESH DONE.$(RESET)"
+	echo "$(GREEN)[✔]$(STOP_COLOR) $(MAGENTA)REFRESH DONE.$(STOP_COLOR)"
 
 #######################################################################
 #                		       BONUS - RULES   		    		      #
@@ -114,19 +114,19 @@ $(BONUS_OBJDIR)%.o : bonus/%.c | $(BONUS_OBJDIR)
 $(BONUS_NAME) : $(BONUS_OBJDIR) $(BONUS_OBJ) $(OBJ) $(LIBFTLIB)
 	@echo "$(YELLOW)[!] $(STOP_COLOR)COMPILING BONUS "
 	$(CC) $(CFLAGS) $(BONUS_OBJ) $(OBJ) $(LIBFTLIB) -o bonus/$(BONUS_NAME)
-	@echo "$(GREEN)[✔]$(RESET) $(BLUE)OK$(RESET)"
+	@echo "$(GREEN)[✔]$(STOP_COLOR) $(BLUE)OK$(STOP_COLOR)"
 
 bonus_clean :
 	echo "$(YELLOW)[!] $(STOP_COLOR)CLEANING BONUS"
 	$(RM) $(BONUS_OBJDIR)
 	make clean -C $(LIBFTDIR)
-	echo "$(GREEN)[✔]$(RESET) $(BLUE)BONUS CLEAN.$(RESET)"
+	echo "$(GREEN)[✔]$(STOP_COLOR) $(BLUE)BONUS CLEAN.$(STOP_COLOR)"
 
 bonus_fclean :
 	echo "$(YELLOW)[!] $(STOP_COLOR)BONUS FULL CLEANING"
 	$(RM) bonus/$(BONUS_NAME) $(BONUS_OBJDIR)
 	make fclean -C $(LIBFTDIR)
-	echo "$(GREEN)[✔]$(RESET) $(BLUE)BONUS FULL CLEANING DONE. $(RESET)"
+	echo "$(GREEN)[✔]$(STOP_COLOR) $(BLUE)BONUS FULL CLEANING DONE. $(STOP_COLOR)"
 #######################################################################
 #                		       EXTRA RULES  		    		      #
 #######################################################################

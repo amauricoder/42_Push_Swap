@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:36:00 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/24 11:41:18 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/25 08:38:36 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ int	validade_format_bonus(char **argv)
 			return (0);
 		if (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
 			return (0);
-		j ++;
+		if (argv[i][j] == '-')
+			j ++;
 		while (argv[i][j] != '\0')
 		{
 			if (!(ft_isdigit(argv[i][j])))
