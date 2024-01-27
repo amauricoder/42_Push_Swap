@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:54:54 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/25 08:54:54 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/27 17:57:46 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,30 @@
 void	st_printstack_color(t_stack *stack, char stack_letter)
 {
 	if (stack_letter == 'a')
-		ft_printf(GREEN "STACK A \n" RESET);
+		ft_printf(GREEN "╔═══════════════════╗\n" "║      STACK A      ║\n"
+			"╠═══════════════════╣\n"RESET);
 	else if (stack_letter == 'b')
-		ft_printf(MAGENTA "STACK B \n" RESET);
+		ft_printf(MGT "╔═══════════════════╗\n" "║       STACK B     ║\n"
+			"╠═══════════════════╣\n"RESET);
 	if (stack != NULL)
 	{
 		while (stack != NULL)
 		{
-			ft_printf("=> %i \n", stack->value);
+			ft_printf("  Value    =   %i   \n", stack->value);
 			stack = stack->next;
 		}
+		if (stack_letter == 'a')
+			ft_printf(GREEN "╚═══════════════════╝\n" RESET);
+		else
+			ft_printf(MGT "╚═══════════════════╝\n" RESET);
 	}
 	else
-		ft_printf("EMPTY \n");
-	ft_printf("\n");
+	{
+		if (stack_letter == 'a')
+			ft_printf(GREEN"║       EMPTY       ║\n╚═══════════════════╝\n"RESET);
+		else
+			ft_printf(MGT"║       EMPTY       ║\n╚═══════════════════╝\n"RESET);
+	}
 }
 
 char	**st_define_argv(char **argv)

@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/22 08:53:52 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/27 17:53:40 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define GREEN   "\033[32m"
 # define YELLOW  "\033[33m"
 # define BLUE    "\033[34m"
-# define MAGENTA "\033[35m"
+# define MGT "\033[35m"
 # define CYAN    "\033[36m"
 # define WHITE   "\033[37m"
 
