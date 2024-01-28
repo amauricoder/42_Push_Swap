@@ -24,7 +24,11 @@ RM = rm -rf
 LIBFTDIR = libft/
 LIBFTLIB = libft/libft.a
 
-SRC = $(filter-out push_swap.c, $(wildcard *.c))
+SRC = ft_general_utils.c ft_val_utils.c mov_push.c \
+		mov_revrotate.c mov_rotate.c \
+		mov_swap.c srt_sorting_calculation.c \
+		srt_sorting_operations.c st_list_utils.c \
+		st_stack_definition.c st_stack_utils.c
 
 OBJ = $(addprefix $(OBJDIR), $(SRC:.c=.o))
 OBJDIR = objs/
@@ -37,7 +41,9 @@ INPUT = 1 3 5 -10 -50 87 6
 BONUS_OBJDIR = bonus/bonus_objs/
 BONUS_NAME = checker
 
-BONUS_SRC = $(wildcard bonus/*.c)
+BONUS_SRC = bonus/checker_bonus.c bonus/ft_utils_bonus.c \
+			bonus/ft_val_utils_bonus.c bonus/get_next_line_bonus.c \
+			bonus/get_next_line_utils_bonus.c bonus/mov_bonus.c
 
 BONUS_OBJ = $(addprefix $(BONUS_OBJDIR), $(BONUS_SRC:bonus/%.c=%.o))
 #######################################################################
