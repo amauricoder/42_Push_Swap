@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:20:06 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/23 17:15:56 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/01/31 13:01:43 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
+	if (argc < 2 || (argc == 2 && argv[1][0] == '\0') 
+		|| (argc == 2 && argv[1][0] == ' '))
 		return (0);
 	tmp = st_define_argv(argv);
 	flags = validade_check_flag(tmp);
 	if (validade_input_bonus(tmp, flags) == 1)
 	{
+		return (0);
 		stack_a = st_init_stack_a(tmp, flags);
 		stack_b = NULL;
 		input = get_next_line(0);
