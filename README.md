@@ -1,6 +1,5 @@
 # Push_Swap
-<!-- ![Banner](FT_PRINTF.png "ft_printf banner") -->
-
+![Banner](push_swap.gif "ft_printf banner") <br>
 "This project will make you sort data on a stack, with a limited set of instructions, using
 the lowest possible number of actions. To succeed it's necessary to manipulate various
 types of algorithms and choose the most appropriate solution (out of many) for an
