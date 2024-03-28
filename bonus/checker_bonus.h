@@ -6,7 +6,7 @@
 /*   By: aconceic <aconceic@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:29:10 by aconceic          #+#    #+#             */
-/*   Updated: 2024/01/24 11:40:37 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:45:30 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 /*          Sources           */
 /******************************/
 # include "../libft/libft.h"
-# include "../push_swap.h"
+# include "../source/push_swap.h"
 # include "get_next_line_bonus.h"
 /******************************/
 /*           Structs          */

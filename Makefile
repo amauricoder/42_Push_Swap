@@ -28,7 +28,9 @@ SRC = ft_general_utils.c ft_val_utils.c mov_push.c \
 		mov_revrotate.c mov_rotate.c \
 		mov_swap.c srt_sorting_calculation.c \
 		srt_sorting_operations.c st_list_utils.c \
-		st_stack_definition.c st_stack_utils.c
+		st_stack_definition.c st_stack_utils.c \
+
+SRC_DIR = ./source/
 
 OBJ = $(addprefix $(OBJDIR), $(SRC:.c=.o))
 OBJDIR = objs/
@@ -61,12 +63,12 @@ $(OBJDIR) :
 #compile the project
 $(NAME) : $(OBJ) $(LIBFTLIB)
 	@echo "$(YELLOW)[!] $(STOP_COLOR)COMPILING PROJECT "
-	$(CC) $(CFLAGS) $(OBJ) push_swap.c $(LIBFTLIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(SRC_DIR)push_swap.c $(LIBFTLIB) -o $(NAME)
 	@echo "$(GREEN)[✔]$(STOP_COLOR) $(BLUE)OK$(STOP_COLOR)"
 
 #compile the objects and display a message for the first time created
 #or in case of modification
-$(OBJDIR)%.o: %.c | $(OBJDIR)
+$(OBJDIR)%.o: $(SRC_DIR)%.c | $(OBJDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@if [ -n "$(shell find $< -newer $(OBJDIR)$*.o -print -quit)" ]; then \
 		echo "$(GREEN)[✔]$(STOP_COLOR) $(ORANGE)UPDATE OF $< DONE$(STOP_COLOR)"; \
