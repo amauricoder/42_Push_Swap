@@ -1,5 +1,5 @@
 # Push_Swap
-![Banner](push_swap.gif "ft_printf banner") <br>
+![Banner](push_swap.gif "ps banner") <br>
 "This project will make you sort data on a stack, with a limited set of instructions, using
 the lowest possible number of actions. To succeed it's necessary to manipulate various
 types of algorithms and choose the most appropriate solution (out of many) for an
@@ -50,22 +50,22 @@ Below, there is an illustration of how this algorithm works. <br>
 If you want to test the program like this, check the [push_swap visualizer](https://github.com/o-reo/push_swap_visualizer).
 
 ## Bonus
-The bonus requires the creation of a program that reproduces the behaviour of the checker,but not 100% equally. The checker is a program that is given by the 42 school to check if the numbers are sorted.
+The bonus requires the creation of a program that reproduces the behaviour of the checker, but not 100% equally. The checker is a program that is given by the 42 school to check if the numbers are sorted.
 
 ## Bonus Usage
 1. On your terminal, clone the repository
 ```bash
 git clone git@github.com:amauricoder/42_Push_Swap.git
 ```
-2. Do make to compile the files
+2. Do make bonus to compile the bonus files
 ```bash
-make
+make bonus
 ```
 This will generate a checker file in the bonus folder, this is the executable of the bonus program.
 
 3. Run the bonus program with the numbers you want as parameters (Please, check bonus behaviour topic below for more details about the usage of this program).
 ``` bash
-./bonus/push_swap 5 -10 13
+./bonus/checker 5 -10 13
 ```
 ## Bonus Behaviour
 Upon executing the program, you'll be prompted to input valid movements via the terminal. These movements will determine whether the stack becomes organized as a result.
@@ -74,17 +74,29 @@ Since this bonus part we were asked to create a checker, but not 100% equal to t
 To access these features, use the following flags on the execution.
 | -s | -c |
 |----------|:---------:|
-| print the stacks   | print in color the last valid moviment   |
-Below there if examples of usage of the ckecher program, including its flags.
-<!-- image 1 -->
-<!-- image 2 -->
-<!-- image 3 -->
+| print the stacks   | print in color the last moviment that took action |
+
+Examples of usage of the checker program below:
+
+Normal Usage <br>
+> ![checker 1](checker_1.gif "checker_usage1") <br>
+
+Using -s flag <br>
+> ![checker 2](checker_2.gif "checker_usage2") <br>
+
+Using -c flag alone and -s and -c together <br>
+> ![checker 3](checker_3.gif "checker_usage3") <br>
+
 ## Makefile Overview
 In this project, the Makefile offers the following essential rules:
-- **make**: Compiles the project to libftprintf.a.
-- **make clean**: Cleans the directory by removing `.o` files, preserving `libftprintf.a`.
-- **make fclean**: Completely cleans the directory by deleting both `.o` files and `libftprintf.a`.
-- **make re**: Refreshes `libftprintf.a` by recompiling everything.
+- **make**: Compiles the project to push_swap on root folder.
+- **make clean**: Cleans the directory by removing `.o` files, preserving `push_swap` executable.
+- **make fclean**: Completely cleans the directory by deleting both `.o` files and `push_swap`.
+- **make re**: Refreshes `push_swap` by recompiling everything.
+- **make valgrind**: Checks for memory leaks(Valgrind program required).
+- **make bonus**: Compiles the bonus part to checker on the bonus folder.
+- **make bonus_clean**: Clean the bonus `.o` files, preserving the checker executable.
+- **make bonus_fclean**: Completely cleans the bonus directory by deleting both `.o` files and `checker`.
 
 ## License and Thoughtful Advice
 [View License](LICENSE)
