@@ -8,7 +8,7 @@ optimized data sorting."
 ## Table of contents
 - [Introduction](#introduction)
 - [Usage](#usage)
-- [Obligatory Convertions](#obligatory-convertions)
+- [Sorting Algorithm](#sorting-algorithm)
 - [Makefile Overview](#makefile-overview)
 - [License and Thoughtful Advice](#license-and-thoughtful-advice)
 
@@ -17,34 +17,38 @@ The Push Swap project presents a simple yet essential algorithmic task: sorting 
 >The code was written according to the 42 norm guidelines(norminette)
 
 ## Usage
-1. Clone the repository
+1. On your terminal, clone the repository
 ```bash
-git clone git@github.com:amauricoder/42_ft_printf.git
+git clone git@github.com:amauricoder/42_Push_Swap.git
 ```
 2. Do make to compile the files
 ```bash
 make
 ```
-This will generate a libftprintf.a file in the root folder, this is the library containing the ft_printf().
+This will generate a push_swap file in the root folder, this is the executable of the program.
 
-3. Go to your header file and include the library
-``` C
-# include "ft_printf.h"
+3. Run the program with the numbers you want as parameters
+``` bash
+./push_swap 5 -10 13
 ```
-4. Syntax Example
-``` C
-  ft_printf("This is a syntax usage example.\n Followed by a number %i.", nbr);
-```
-## Obligatory convertions
-Those are the obligatory conversions requirements of the project - for more detail, check the [subject](subject/2-printf.pdf):
-- %c Prints a single character.
-- %s Prints a string (as defined by the common C convention).
-- %p The void * pointer argument has to be printed in hexadecimal format. • %d Prints a decimal (base 10) number.
-- %i Prints an integer in base 10.
-- %u Prints an unsigned decimal (base 10) number.
-- %x Prints a number in hexadecimal (base 16) lowercase format.
-- %X Prints a number in hexadecimal (base 16) uppercase format.
-- %% Prints a percent sign.
+This will return the moviments necessary to organize the stack.
+To know more about the rules for moviments, see [Subject](subject) <br>
+
+## Sorting algorithm
+This code was written based on an article by **A. Yigit Ogun**. Click [Here](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) if you want to check it out.<br>
+A. Yigit Ogun called this "The Turc Algorithm". Essentially, he determines the optimal sequence of moves required to arrange a set of numbers in order, and then performs the sorting accordingly. This method prioritizes efficiency by minimizing the number of moves needed to put the stack in order.
+### How does "The Turc Algorithm" works ??
+First of all: for the turc algorithm to work we need to have more than 3 numbers on the stack. If we have 3 numbers only, we use a simple sort three algorithm, that is based on all the exiting possibilities to sort 3 numbers. If we have only 2 numbers, then we use a simple "sa", that changes the position of the first and second number of stack a. <br>Again, to know more about the moviments and the rules, please check [Subject](subject). <br>
+If we have more than 3 numbers, the turc algorithm takes action.
+Explaining in a very simple and direct form how it works:<br>
+  - Transfer all elements from STACK_A to STACK_B in descending order. This rearrangement is intended to facilitate automatic sorting when the elements are subsequently pushed back to STACK_A.
+  - We perform the transfer from STACK_A to STACK_B until STACK A contains only three numbers.
+  - When STACK_A is only with the 3 numbers, we perform a sort three algorithm on STACK_A and send the numbers of STACK_B back to STACK_A.
+
+For a more detailed explanation, I highly recommend for you too read the article [Here](https://medium.com/@ayogun/push-swap-c1f5d2d41e97). <br>
+Below, there is an illustration of how this algorithm works. <br>
+<!-- FOTO PS VISUALIZER AQUI -->
+If you want to test the program like this, check the [push_swap visualizer](https://github.com/o-reo/push_swap_visualizer).
 
 ## Makefile Overview
 
