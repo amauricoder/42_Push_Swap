@@ -35,7 +35,7 @@ This will generate a checker program in your bonus folder, this is the executabl
 ./push_swap 5 -10 13
 ```
 This will return the moviments necessary to organize the stack.
-To know more about the rules for moviments, see [Subject](subject) <br>
+To know more about the rules for moviments, see [Subject](subject/en.subject.pdf) <br>
 
 ## Sorting algorithm
 This code was written based on an article by **_A. Yigit Ogun_**. Click [Here](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) if you want to check it out.<br>
