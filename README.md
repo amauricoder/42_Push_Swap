@@ -11,6 +11,7 @@ optimized data sorting."
 - [Sorting Algorithm](#sorting-algorithm)
 - [Bonus](#bonus)
 - [Bonus Usage](#bonus-usage)
+- [Bonus Behaviour](#bonus-behaviour)
 - [Makefile Overview](#makefile-overview)
 - [License and Thoughtful Advice](#license-and-thoughtful-advice)
 
@@ -49,7 +50,7 @@ Below, there is an illustration of how this algorithm works. <br>
 If you want to test the program like this, check the [push_swap visualizer](https://github.com/o-reo/push_swap_visualizer).
 
 ## Bonus
-The bonus requires the creation of a program that reproduces the behaviour of the checker. The checker is a program that is given by the 42 school to check if the numbers are sorted.
+The bonus requires the creation of a program that reproduces the behaviour of the checker,but not 100% equally. The checker is a program that is given by the 42 school to check if the numbers are sorted.
 
 ## Bonus Usage
 1. On your terminal, clone the repository
@@ -60,14 +61,25 @@ git clone git@github.com:amauricoder/42_Push_Swap.git
 ```bash
 make
 ```
-This will generate a push_swap file in the root folder, this is the executable of the program.
+This will generate a checker file in the bonus folder, this is the executable of the bonus program.
 
-3. Run the program with the numbers you want as parameters
+3. Run the bonus program with the numbers you want as parameters (Please, check bonus behaviour topic below for more details about the usage of this program).
 ``` bash
-./push_swap 5 -10 13
+./bonus/push_swap 5 -10 13
 ```
+## Bonus Behaviour
+Upon executing the program, you'll be prompted to input valid movements via the terminal. These movements will determine whether the stack becomes organized as a result.
+If the moviment organizes the stack, it will give you an "Ok" as result. If not, it will give you an "KO". If the input is invalid, it will give you an "Error".
+Since this bonus part we were asked to create a checker, but not 100% equal to the original checker, I've decided to put some extra features on it. <br>
+To access these features, use the following flags on the execution.
+| -s | -c |
+|----------|:---------:|
+| print the stacks   | print in color the last valid moviment   |
+Below there if examples of usage of the ckecher program, including its flags.
+<!-- image 1 -->
+<!-- image 2 -->
+<!-- image 3 -->
 ## Makefile Overview
-
 In this project, the Makefile offers the following essential rules:
 - **make**: Compiles the project to libftprintf.a.
 - **make clean**: Cleans the directory by removing `.o` files, preserving `libftprintf.a`.
