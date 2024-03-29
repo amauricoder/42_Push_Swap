@@ -9,6 +9,8 @@ optimized data sorting."
 - [Introduction](#introduction)
 - [Usage](#usage)
 - [Sorting Algorithm](#sorting-algorithm)
+- [Bonus](#bonus)
+- [Bonus Usage](#bonus-usage)
 - [Makefile Overview](#makefile-overview)
 - [License and Thoughtful Advice](#license-and-thoughtful-advice)
 
@@ -17,17 +19,13 @@ The Push Swap project presents a simple yet essential algorithmic task: sorting 
 >The code was written according to the 42 norm guidelines(norminette)
 
 ## Usage
-1. On your terminal, clone the repository
+1. Considering that you already have cloned the repository, do make bonus
 ```bash
-git clone git@github.com:amauricoder/42_Push_Swap.git
+make bonus
 ```
-2. Do make to compile the files
-```bash
-make
-```
-This will generate a push_swap file in the root folder, this is the executable of the program.
+This will generate a checker program in your bonus folder, this is the executable of the bonus program.
 
-3. Run the program with the numbers you want as parameters
+2. Run the program with the numbers you want as parameters
 ``` bash
 ./push_swap 5 -10 13
 ```
@@ -47,9 +45,27 @@ Explaining in a very simple and direct form how it works:<br>
 
 For a more detailed explanation, I highly recommend for you too read the article [Here](https://medium.com/@ayogun/push-swap-c1f5d2d41e97). <br>
 Below, there is an illustration of how this algorithm works. <br>
-<!-- FOTO PS VISUALIZER AQUI -->
+![push_swap_visualizer](ps_visualizer.gif)<br>
 If you want to test the program like this, check the [push_swap visualizer](https://github.com/o-reo/push_swap_visualizer).
 
+## Bonus
+The bonus requires the creation of a program that reproduces the behaviour of the checker. The checker is a program that is given by the 42 school to check if the numbers are sorted.
+
+## Bonus Usage
+1. On your terminal, clone the repository
+```bash
+git clone git@github.com:amauricoder/42_Push_Swap.git
+```
+2. Do make to compile the files
+```bash
+make
+```
+This will generate a push_swap file in the root folder, this is the executable of the program.
+
+3. Run the program with the numbers you want as parameters
+``` bash
+./push_swap 5 -10 13
+```
 ## Makefile Overview
 
 In this project, the Makefile offers the following essential rules:
